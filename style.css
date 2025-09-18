@@ -1,0 +1,54 @@
+:root{
+  --brand: #0ac752;      
+  --card-bg: #ffffff;
+  --panel-surface: rgba(255,255,255,0.90); /* glassy light */
+  --panel-border: rgba(0,0,0,.06);
+  --panel-shadow: 0 20px 40px rgba(0,0,0,.12);
+}
+
+html, body { min-height: 100%; margin: 0; }
+
+body {
+  background:
+    linear-gradient(to bottom, #ffffff 25%, #464646 75%, #000000 100%) fixed;
+  color: #111;
+}
+
+.site-wrap{
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+.example-pics{
+    border-radius: 20px;
+    box-shadow: 0 8px 24px black;
+}
+
+.section-card{
+  position: relative;
+  background: rgba(248, 250, 249, 0.8); 
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+
+.skills{
+  background: rgba(10,199,82,.12);
+  color: #0ac752;
+  border: 1px solid rgba(10,199,82,.25);
+  border-radius: 100px;
+  padding: .4rem .8rem;
+  font-weight: 500;
+}
+
+.btn-outline-success{
+  border-color: var(--brand);
+  color: var(--brand);
+}
+.btn-outline-success:hover{
+  background: var(--brand);
+  color: #0b0f0c;
+  border-color: var(--brand);
+}
