@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hexapod Portfolio • Benoît B.M</title>
+
+  <!-- Bootstrap (match CSS & JS versions) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- Page styles -->
+  <style>
+    /* Navbar icon tweak */
+    .icon {
+      margin: 0 10px 3px 10px;
+    }
+
+    /* Hero / header */
+    .hero {
+      position: relative;
+      background: url('img/hexapod-hero.jpg') center/cover no-repeat;
+      min-height: 48vh;
+      display: grid;
+      place-items: center;
+      color: #fff;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #003508;
+      /* readable text on any photo */
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .hero h1 {
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    /* Section spacing */
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      margin-bottom: 2rem;
+      color: var(--bs-secondary-color);
+    }
+
+    /* Specs list */
+    .specs dt {
+      font-weight: 600;
+    }
+
+    .specs dd {
+      margin-bottom: .75rem;
+    }
+
+    /* Image cards */
+    .img-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      /* behaves like background cover */
+      border-top-left-radius: .5rem;
+      border-top-right-radius: .5rem;
+    }
+
+    .img-card .card-body {
+      min-height: 3.5rem;
+    }
+
+    /* Video embeds */
+    .video-shadow {
+      box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, .15);
+      border-radius: .5rem;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2.5rem 0;
+      color: var(--bs-secondary-color);
+    }
+  </style>
+</head>
+
+<body>
+  <!--Nav bar-->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color:#003508;">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">
+        <img class="icon" src="../../Assets/book-half.svg" alt="portfolio icon" height="25"> Benoît B.M
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Projects
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../../robotics/index.html">Robotics</a></li>
+              <li><a class="dropdown-item" href="https://benoitbenm.github.io/WebDevPractice/">Web Development</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="../../creative/index.html">Creative</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../../links/index.html">Links</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../contact/index.html">Contact</a></li>
+        </ul>
+
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content container">
+      <h1 class="display-5">Hexapod Robotics Project</h1>
+      <p class="lead">
+        Custom 3D-printed hexapod: mechanical design (coxa/femur/tibia), embedded control, and ROS2 integration.
+        Below you’ll find photos, part breakdowns, and demo videos.
+      </p>
+      <a href="#gallery" class="btn btn-light btn-lg mt-2">See Gallery</a>
+    </div>
+  </header>
+
+  <!-- Overview / Specs -->
+  <section id="overview">
+    <div class="container">
+      <h2 class="section-title">Overview</h2>
+      <p class="section-subtitle">
+        The purpose of the project is to build a custom hexapod, and to then implement high level features and experiment with ROS2 and Robotics focused programming. 
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="p-4 border rounded-4 h-100">
+            <h5>Project Goals</h5>
+            <ul class="mb-4">
+              <li>Design modular leg geometry (coxa–femur–tibia) for easy iteration.</li>
+              <li>Implement inverse kinematics (IK) and program smooth control</li>
+              <li>ROS2 node architecture for future autonomy (perception / planning).</li>
+              <li>Experiment with innovative future such as a jumping mechanism or Hexapod/Drone hybrid integration</li>
+            </ul>
+
+            <h5>Architecture</h5>
+            <p class="mb-0">
+              Controller (STM32 / Raspberry Pi) → PWM/servo drivers → 18 DOF (3 per leg).
+              Power distribution and onboard sensing (IMU, optional LiDAR) for balance and navigation.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="p-4 border rounded-4 h-100">
+            <h5>Key Specs</h5>
+            <dl class="row specs mb-0">
+              <dt class="col-5">Degrees of Freedom</dt>
+              <dd class="col-7">18 (3 per leg: coxa, femur, tibia)</dd>
+              <dt class="col-5">Actuators</dt>
+              <dd class="col-7">MG996R (prototype)</dd>
+              <dt class="col-5">Controller</dt>
+              <dd class="col-7">STM32 / Raspberry Pi (ROS2)</dd>
+              <dt class="col-5">Power</dt>
+              <dd class="col-7">2S–3S LiPo with regulated rails</dd>
+              <dt class="col-5">Materials</dt>
+              <dd class="col-7">3D-printed PLA/ABS; aluminum fasteners</dd>
+              <dt class="col-5">Software</dt>
+              <dd class="col-7">C++/Python, ROS2, custom gait/IK modules</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Gallery-->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-subtitle">Click any photo to view it larger.</p>
+
+      <div class="row g-4">
+        <!-- Schematic -->
+        <div class="col-12 col-sm-6">
+          <div class="card img-card shadow-sm h-100" >
+            <img src="assets/hexapod-schematic.png" alt="Hexapod schematic" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="assets/hexapod-schematic.png" data-img-title="Hexapod Schematic">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Schematic</h6>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prototype Video -->
+        <div class="col-12 col-sm-6">
+          <div class="card shadow-sm h-100">
+            <div class="ratio ratio-16x9">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/iPvbO91_OXQ?si=4hg7KJTuxZa_rb1u"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title mb-0">Prototype Video</h6>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coxa -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card img-card shadow-sm h-200">
+            <img src="assets/hexapod-coxa.png" alt="Hexapod coxa module" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="./assets/hexapod-coxa.png" data-img-title="Coxa Module">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Coxa</h6>
+            </div>
+          </div>
+        </div>
+
+        <!-- Femur -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card img-card shadow-sm h-100">
+            <img src="assets/hexapod-femur.png" alt="Hexapod femur link" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="./assets/hexapod-femur.png" data-img-title="Femur Link">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Femur</h6>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tibia -->
+        <div class="col-12 col-sm-6 col-lg-5">
+          <div class="card img-card shadow-sm h-100">
+            <img src="assets/hexapod-tibia.png" alt="Hexapod tibia link" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="./assets/hexapod-tibia.png" data-img-title="Tibia Link">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Tibia</h6>
+            </div>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-12 col-sm-6 col-lg-5">
+          <div class="card img-card shadow-sm h-100">
+            <img src="./assets/hexapod-body.png" alt="Hexapod body plate and electronics" loading="lazy"
+              data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="./assets/hexapod-body.png"
+              data-img-title="Body & Electronics">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Body Parts</h6>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Assembly -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card img-card shadow-sm h-100">
+            <img src="assets/hexapod-assembly.png" alt="Hexapod full assembly" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="./assets/hexapod-assembly.png" data-img-title="Full Assembly">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Full Assembly</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image modal (one reusable modal) -->
+      <div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content border-0">
+            <div class="modal-header">
+              <h5 class="modal-title" id="imgModalTitle">Preview</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+              <img id="imgModalSrc" src="" alt="" class="w-100" style="max-height:70vh; object-fit:contain;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Videos-->
+  <section id="videos" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Demo Videos</h2>
+      <p class="section-subtitle">Two clips from the channel showing the hexapod in action.</p>
+
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <!--Full leg video-->
+          <div class="ratio ratio-16x9 video-shadow">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/GTgjKhTRW6w?si=aTvZCMs4tD3cdO5p"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <!--Full assembly video-->
+          <div class="ratio ratio-16x9 video-shadow">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/DTkFVdz3e-g?si=fLoCjwDZZyoE7OoB"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Build notes / timeline (optional quick section) -->
+  <section id="notes">
+    <div class="container">
+      <h2 class="section-title">Build Notes</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="p-4 border rounded-4 h-100">
+            <h5 class="mb-2">Mechanical Iterations</h5>
+            <ul class="mb-0">
+              <li>Iterated through 12 versions to address issues continuously and increase the design's modularity</li>
+              <li>Created custom motor case and bearing/motor hold parts using component specifications and improve stability</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-4 border rounded-4 h-100">
+            <h5 class="mb-2">Control & Software (ongoing)</h5>
+            <ul class="mb-0">
+              <li>Implementation of inverse kinematics</li>
+              <li>Integration of ROS2 nodes for command, state, and telemetry.</li>
+              <li>Integration of high level features and simulation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Small script to update the image modal -->
+  <script>
+    document.addEventListener('click', function (e) {
+      const t = e.target.closest('[data-bs-target="#imgModal"]');
+      if (!t) return;
+      const src = t.getAttribute('data-img-src');
+      const title = t.getAttribute('data-img-title') || 'Preview';
+      document.getElementById('imgModalSrc').src = src;
+      document.getElementById('imgModalSrc').alt = title;
+      document.getElementById('imgModalTitle').textContent = title;
+    }, false);
+  </script>
+</body>
+
+</html>
