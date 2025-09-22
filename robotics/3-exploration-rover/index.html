@@ -2,62 +2,400 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-  <link href="style.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exploration Rover (LizzHard) • Benoît B.M</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <!-- Styles (shared vibe with your other pages) -->
   <style>
     .icon {
-      margin: 0px 10px 3px 10px;
+      margin: 0 10px 3px 10px;
+    }
+
+    .hero {
+      position: relative;
+      background: url('img/rover-hero.jpg') center/cover no-repeat;
+      min-height: 48vh;
+      display: grid;
+      place-items: center;
+      color: #fff;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 53, 8, .8);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .hero h1 {
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .hero p {
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      margin-bottom: 2rem;
+      color: var(--bs-secondary-color);
+    }
+
+    .specs dt {
+      font-weight: 600;
+    }
+
+    .specs dd {
+      margin-bottom: .5rem;
+    }
+
+    .img-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-top-left-radius: .5rem;
+      border-top-right-radius: .5rem;
+    }
+
+    .img-card .card-body {
+      min-height: 3.2rem;
+    }
+
+    .video-shadow {
+      box-shadow: 0 .5rem 1.25rem rgba(0, 0, 0, .15);
+      border-radius: .5rem;
+      overflow: hidden;
+    }
+
+    footer {
+      padding: 2.5rem 0;
+      color: var(--bs-secondary-color);
     }
   </style>
 </head>
 
-
 <body>
-  
-  <!--Nav bar-->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #003508;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="../../index.html"><img class="icon" src="../../Assets/book-half.svg" alt="portfolio icon"
-          height="25px" /> Benoît B.M</a>
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color:#003508;">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">
+        <img class="icon" src="../../Assets/book-half.svg" alt="portfolio icon" height="25"> Benoît B.M
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Projects
-            </a>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Projects</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="../../robotics/index.html">Robotics</a></li>
-              <li><a class="dropdown-item" href="https://benoitbenm.github.io/WebDevPractice/">Wed Development</a></li>
+              <li><a class="dropdown-item" href="https://benoitbenm.github.io/WebDevPractice/">Web Development</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" href="../../creative/index.html">Creative</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../links/index.html">Links</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../contact/index.html">Contact</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="../../links/index.html">Links</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../contact/index.html">Contact</a></li>
         </ul>
+
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
       </div>
     </div>
   </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content container">
+      <h1 class="display-5">Exploration Rover — “LizzHard”</h1>
+      <p class="lead">
+        First-year electronics design project: a web-controlled rover that detects and decodes four signals from arena
+        “lizards” —
+        ultrasound (UART name), infrared (age via pulse frequency), radio (AM), and magnetic polarity — to classify each
+        target. :contentReference[oaicite:1]{index=1}
+      </p>
+      <a href="#gallery" class="btn btn-light btn-lg mt-2">See Gallery</a>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview">
+    <div class="container">
+      <h2 class="section-title">Overview</h2>
+
+
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="p-4 border rounded-4 h-100">
+            <h5>Project Goals</h5>
+            <ul class="mb-4">
+              <li>Build a drivable base and iterate to a complete sensing rover.</li>
+              <li>Detect & decode <strong>Ultrasound, IR, Radio, Magnetics</strong> reliably.</li>
+              <li>Serve a simple control UI (Wi-Fi) to drive and request readings.</li>
+              <li>Classify lizards (name + species) and log results on the web page.
+                :contentReference[oaicite:3]{index=3}</li>
+            </ul>
+
+            <h5>Team</h5>
+            <p class="mb-0">Group 28: Benoit BM (manager), Jay Dong, Chenxuan Xi, John Shin, Akarsh Gopalam, Misha
+              Ischenko. :contentReference[oaicite:4]{index=4}</p>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="p-4 border rounded-4 h-100">
+            <h5>Key Specs</h5>
+            <dl class="row specs mb-0">
+              <dt class="col-5">MCU</dt>
+              <dd class="col-7">Adafruit Metro M0 Express + Wi-Fi shield</dd>
+              <dt class="col-5">Comms</dt>
+              <dd class="col-7">Web UI (HTTP GET/POST), JSON responses</dd>
+              <dt class="col-5">Sensors</dt>
+              <dd class="col-7">Ultrasonic (40 kHz ASK→UART), IR (130–1000 Hz), AM Radio (≈89 kHz), Hall (polarity)</dd>
+              <dt class="col-5">Analog Front-Ends</dt>
+              <dd class="col-7">MCP6022 op-amps, envelope detectors, filters, comparators</dd>
+              <dt class="col-5">Drive</dt>
+              <dd class="col-7">Two-wheel DC, H-bridge PWM; auto-stop safety</dd>
+              <dt class="col-5">Chassis</dt>
+              <dd class="col-7">Light 3-wheel base + front servo’d antenna mounts</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sensors -->
+  <section id="sensors" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Sensor Modules</h2>
+      <p class="section-subtitle">Each sensor was iterated from detection → amplification → robust decoding.
+        :contentReference[oaicite:5]{index=5}</p>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="p-4 border rounded-4 h-100">
+            <h5>Ultrasonic (Name)</h5>
+            <ul class="mb-0">
+              <li>40 kHz carrier, ASK; 600 baud UART (4 ASCII chars + “#”).</li>
+              <li>Transducer → gain stage → envelope → threshold → comparator → decoded in firmware (timed sampling).
+                :contentReference[oaicite:6]{index=6}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-4 border rounded-4 h-100">
+            <h5>Infrared (Age)</h5>
+            <ul class="mb-0">
+              <li>Frequency measured 130–1000 Hz; high-pass filter (~100 Hz) to remove ambient, amplified & thresholded.
+                :contentReference[oaicite:7]{index=7}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="p-4 border rounded-4 h-100">
+            <h5>Radio (AM)</h5>
+            <ul class="mb-0">
+              <li>Custom air-core solenoid (~435 µH) + parallel C tuned near signal, envelope detection, multi-stage
+                amplification. :contentReference[oaicite:8]{index=8}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-4 border rounded-4 h-100">
+            <h5>Magnetic (Polarity)</h5>
+            <ul class="mb-0">
+              <li>SS49E hall sensor; differential stage biased to amplify ΔV vs baseline → North/South classification.
+                :contentReference[oaicite:9]{index=9}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-subtitle">Process shots and final rover. Click any photo to view it larger.</p>
+
+      <div class="row g-4">
+        <!--pic 1-->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card img-card shadow-sm h-100">
+            <img src="assets/rover1.png" alt="Project plan / Gantt" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="assets/rover1.png" data-img-title="Planning & Gantt">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Planning</h6>
+            </div>
+          </div>
+        </div>
+        <!--pic 2-->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card img-card shadow-sm h-100">
+            <img src="assets/rover2.png" alt="Ultrasound scope capture" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="assets/rover2.png" data-img-title="Ultrasound Signal">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Ultrasound Signal</h6>
+            </div>
+          </div>
+        </div>
+        <!--pic 3-->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card img-card shadow-sm h-100">
+            <img src="assets/rover3.png" alt="IR front-end" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="assets/rover3.png" data-img-title="IR Front-End">
+            <div class="card-body">
+              <h6 class="card-title mb-0">IR Front-End</h6>
+            </div>
+          </div>
+        </div>
+        <!--pic 4-->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card img-card shadow-sm h-100">
+            <img src="assets/rover4.png" alt="Custom radio antenna" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="assets/rover4.png" data-img-title="Custom Antenna">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Custom Antenna</h6>
+            </div>
+          </div>
+        </div>
+        <!--pic 5-->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card img-card shadow-sm h-100">
+            <img src="assets/rover5.png" alt="Hall sensor module" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="assets/rover5.png" data-img-title="Hall Sensor">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Hall Sensor</h6>
+            </div>
+          </div>
+        </div>
+        <!--pic 6-->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="card img-card shadow-sm h-100">
+            <img src="assets/rover6.png" alt="Final Rover" loading="lazy" data-bs-toggle="modal"
+              data-bs-target="#imgModal" data-img-src="assets/rover6.png" data-img-title="Final Rover">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Final Rover</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content border-0">
+            <div class="modal-header">
+              <h5 class="modal-title" id="imgModalTitle">Preview</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+              <img id="imgModalSrc" src="" alt="" class="w-100" style="max-height:70vh;object-fit:contain;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos (optional) -->
+  <section id="videos" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Demo Videos</h2>
+      <p class="section-subtitle">Driving, sensing, and decoding demos.</p>
+
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="ratio ratio-16x9 video-shadow">
+            <iframe src="https://www.youtube.com/embed/6iAIZ3CvVU8?" title="Rover drive + UI"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="ratio ratio-16x9 video-shadow">
+            <iframe src="https://www.youtube.com/embed/GOXVQ8BB4Nc?" title="Sensor decoding demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notes -->
+  <section id="notes">
+    <div class="container">
+      <h2 class="section-title">Build Notes</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="p-4 border rounded-4 h-100">
+            <h5 class="mb-2">Control & Webpage</h5>
+            <ul class="mb-0">
+              <li>This is a placeholder text.</li>
+              <li>Auto-stop safety if no command received within ~5s. Keyboard shortcuts (WASD + Shift; servo up/down).
+                :contentReference[oaicite:10]{index=10}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-4 border rounded-4 h-100">
+            <h5 class="mb-2">Mechanical</h5>
+            <ul class="mb-0">
+              <li>Compact 3-wheel chassis with front servo’d sensor mounts; weight reduction cut-outs.</li>
+              <li>Stylized outer shell with hinged tail segments for motion and identity.
+                :contentReference[oaicite:11]{index=11}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+  </section>
+
+  <!-- Image modal script -->
+  <script>
+    document.addEventListener('click', function (e) {
+      const t = e.target.closest('[data-bs-target="#imgModal"]');
+      if (!t) return;
+      const src = t.getAttribute('data-img-src');
+      const title = t.getAttribute('data-img-title') || 'Preview';
+      document.getElementById('imgModalSrc').src = src;
+      document.getElementById('imgModalSrc').alt = title;
+      document.getElementById('imgModalTitle').textContent = title;
+    }, false);
+  </script>
 </body>
+
 </html>
