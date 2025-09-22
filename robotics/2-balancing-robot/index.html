@@ -138,8 +138,7 @@
   <section id="overview">
     <div class="container">
       <h2 class="section-title">Overview</h2>
-      <p class="section-subtitle">Built as a team project: I led system integration and implemented key modules (control
-        loop, ROS2 messaging, perception pipeline).</p>
+      <p class="section-subtitle">Built as a team project: I led system integration and implemented key modules (MQTT (Raspberry PI), computer vision, ROS2 SLAM, Mechanical styling).</p>
       <div class="row g-4">
         <div class="col-lg-7">
           <div class="p-4 border rounded-4 h-100">
@@ -150,9 +149,12 @@
               <li>ROS2 nodes: sensor stream, command, SLAM (LiDAR + Cartographer).</li>
               <li>Person detection + follow mode (vision or LiDAR tracking).</li>
             </ul>
-            <h5>Architecture</h5>
-            <p class="mb-0">MCU (ESP32/STM32) handles real-time control → Motor drivers (H-bridge). Companion computer
-              (Raspberry Pi) runs ROS2 (Jazzy), SLAM, and higher-level behaviors. Telemetry via MQTT / ROS2 topics.</p>
+            <h5>Role</h5>
+              <li>Team manager: I deployed organisational tool and methods to optimize efficiency and smoothen teamwork: Gantt charts, interative collaborative diagrams, agile strategy.</li>
+              <li>Computer vision: I implemented haarcascards and Mediapipe computer vision for person following</li>
+              <li>I integrated ROS2 with a RPLIDA A1M8 to allow live mapping</li>
+              <li>I contributed to the mechanical design, adding eyes and hat design to make the design stand out</li>
+
           </div>
         </div>
         <div class="col-lg-5">
@@ -160,7 +162,7 @@
             <h5>Key Specs</h5>
             <dl class="row specs mb-0">
               <dt class="col-5">Chassis</dt>
-              <dd class="col-7">Custom 3D-printed, 2-wheel</dd>
+              <dd class="col-7">Edited from given base and 3D printed</dd>
               <dt class="col-5">Motors</dt>
               <dd class="col-7">12V DC gearmotors + encoders</dd>
               <dt class="col-5">IMU</dt>
@@ -181,90 +183,99 @@
       </div>
     </div>
   </section>
-
+  <!--Gallery-->
   <section id="gallery">
     <div class="container">
       <h2 class="section-title">Gallery</h2>
       <p class="section-subtitle">Click any photo to view it larger.</p>
       <div class="row g-4">
+        <!--pic 1-->
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="card img-card shadow-sm h-100"><img src="./assets/roles.png" alt="Control loop schematic"
               loading="lazy" data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="./assets/roles.png"
               data-img-title="Control Loop Schematic">
             <div class="card-body">
-              <h6 class="card-title mb-0">Control Loop</h6>
+              <h6 class="card-title mb-0">Role attribution and project team divisions using Miro (Editable by all team members)</h6>
             </div>
           </div>
         </div>
+        <!--Pic 2-->
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="card img-card shadow-sm h-100"><img src="./assets/gantt-chart.png" alt="SLAM map" loading="lazy"
               data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="./assets/gantt-chart.png"
               data-img-title="SLAM (Cartographer)">
             <div class="card-body">
-              <h6 class="card-title mb-0">SLAM Map</h6>
+              <h6 class="card-title mb-0">Gantt chart</h6>
             </div>
           </div>
         </div>
+        <!--Pic 3-->
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="card img-card shadow-sm h-100"><img src="./assets/balance-schematic.png" alt="Electronics bay"
               loading="lazy" data-bs-toggle="modal" data-bs-target="#imgModal"
               data-img-src="./assets/balance-schematic.png" data-img-title="Electronics Bay">
             <div class="card-body">
-              <h6 class="card-title mb-0">Electronics</h6>
+              <h6 class="card-title mb-0">Force field analysis schematic</h6>
             </div>
           </div>
         </div>
+       <!--Pic 4-->
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="card img-card shadow-sm h-100"><img src="./assets/code-chart.png" alt="Chassis build"
               loading="lazy" data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="./assets/code-chart.png"
               data-img-title="Chassis">
             <div class="card-body">
-              <h6 class="card-title mb-0">Chassis</h6>
+              <h6 class="card-title mb-0">Code schematic accross all teams. To manage the project I had to develop an understanding of all subsystems of the robot. This Miro schematic allowed all teams to understand how their contribution interacted with other teams. </h6>
             </div>
           </div>
         </div>
+        <!--Pic 5-->
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="card img-card shadow-sm h-100"><img src="./assets/harrcascades1.png" alt="IMU mount"
               loading="lazy" data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="./assets/harrcascades1.png"
               data-img-title="IMU Mount">
             <div class="card-body">
-              <h6 class="card-title mb-0">IMU Mount</h6>
+              <h6 class="card-title mb-0">Initially, I attemped to use haarcascades lower body model to detect a user's lower body in OpenCV. This was coherent due to the robot's small size, making it see the user's lower body. However, this model appeared to be trained on full body images, making it unreliable when presented with partial bodies.</h6>
             </div>
           </div>
         </div>
+        <!--Pic 6-->
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="card img-card shadow-sm h-100"><img src="./assets/mediapipe.png" alt="Full assembly"
               loading="lazy" data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="./assets/mediapipe.png"
               data-img-title="Full Assembly">
             <div class="card-body">
-              <h6 class="card-title mb-0">Full Assembly</h6>
+              <h6 class="card-title mb-0">The most functional approach was to use MediaPipe pose detection with a camera inclined upward. Pose detection appeared more effective at recognizing partial body parts. This was integrated within the Base station laptop's UI, and allowed the robot to follow users on demand, by calculating the detection box' offset from center and sending serial commands accordingly. </h6>
             </div>
           </div>
         </div>
+        <!--Pic 7-->
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="card img-card shadow-sm h-100"><img src="./assets/gazebo.png" alt="Chassis build" loading="lazy"
               data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="./assets/gazebo.png"
               data-img-title="Chassis">
             <div class="card-body">
-              <h6 class="card-title mb-0">Chassis</h6>
+              <h6 class="card-title mb-0">Gazebo simulation using SLAM toolbox.</h6>
             </div>
           </div>
         </div>
+        <!--Pic 8-->
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="card img-card shadow-sm h-100"><img src="./assets/map.png" alt="IMU mount" loading="lazy"
               data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="./assets/map.png"
               data-img-title="IMU Mount">
             <div class="card-body">
-              <h6 class="card-title mb-0">IMU Mount</h6>
+              <h6 class="card-title mb-0">Visualization in Rviz2 of SLAM implementation with Google Cartographer</h6>
             </div>
           </div>
         </div>
+        <!--Pic 9-->
         <div class="col-12 col-sm-6 col-lg-4">
           <div class="card img-card shadow-sm h-100"><img src="./assets/robot.png" alt="Full assembly" loading="lazy"
               data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="./assets/robot.png"
               data-img-title="Full Assembly">
             <div class="card-body">
-              <h6 class="card-title mb-0">Full Assembly</h6>
+              <h6 class="card-title mb-0">Integration of the camera and mechanical design on the robot. </h6>
             </div>
           </div>
         </div>
@@ -323,28 +334,17 @@
       </div>
     </div>
   </section>
-
+  <!--Results-->
   <section id="notes">
     <div class="container">
-      <h2 class="section-title">Build Notes</h2>
+      <h2 class="section-title">Notes - Results</h2>
       <div class="row g-4">
-        <div class="col-md-6">
-          <div class="p-4 border rounded-4 h-100">
-            <h5 class="mb-2">Control Tuning</h5>
-            <ul class="mb-0">
-              <li>Step-response method to seed PID; refined with Ziegler–Nichols.</li>
-              <li>Added feed-forward term for faster recovery from pushes.</li>
-              <li>Complementary filter (98/2 split) before trying EKF.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="p-4 border rounded-4 h-100">
             <h5 class="mb-2">ROS2 Integration</h5>
             <ul class="mb-0">
-              <li>Nodes: <code>/imu</code>, <code>/wheel_odom</code>, <code>/cmd_vel</code>, <code>/map</code>.</li>
-              <li>Cartographer config tuned for short-range LiDAR.</li>
-              <li>MQTT bridge for lightweight telemetry to laptop dashboard.</li>
+              <li>Despite the need to cut some ROS2 features we had wished to implemnt (Nav2), the project was highly successful (1st class) and was the only project implementing a creative design, as seen in the last video.</li>
+              <li>Comparison was made by a team member of the difference in performance between Mediapipe and Yolo V8. Yolo V8 appeared to be slightly more efficienct but highly more demanding in resources. Mediapipe was implemented. Live UI camera was diabled to prevent power spikes.</li>
             </ul>
           </div>
         </div>

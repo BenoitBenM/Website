@@ -136,12 +136,10 @@
   <!-- Hero -->
   <header class="hero">
     <div class="hero-content container">
-      <h1 class="display-5">Exploration Rover — “LizzHard”</h1>
+      <h1 class="display-5">Exploration Rover</h1>
       <p class="lead">
-        First-year electronics design project: a web-controlled rover that detects and decodes four signals from arena
-        “lizards” —
-        ultrasound (UART name), infrared (age via pulse frequency), radio (AM), and magnetic polarity — to classify each
-        target. :contentReference[oaicite:1]{index=1}
+        Web-controlled rover that detects and decodes four signals types: ultrasound (UART name), infrared (age via
+        pulse frequency), radio (AM), and magnetic polarity — to classify lizard props in an arena.
       </p>
       <a href="#gallery" class="btn btn-light btn-lg mt-2">See Gallery</a>
     </div>
@@ -161,13 +159,15 @@
               <li>Build a drivable base and iterate to a complete sensing rover.</li>
               <li>Detect & decode <strong>Ultrasound, IR, Radio, Magnetics</strong> reliably.</li>
               <li>Serve a simple control UI (Wi-Fi) to drive and request readings.</li>
-              <li>Classify lizards (name + species) and log results on the web page.
-                :contentReference[oaicite:3]{index=3}</li>
+              <li>Classify lizards (name + species) and log results on the web page.</li>
             </ul>
 
-            <h5>Team</h5>
-            <p class="mb-0">Group 28: Benoit BM (manager), Jay Dong, Chenxuan Xi, John Shin, Akarsh Gopalam, Misha
-              Ischenko. :contentReference[oaicite:4]{index=4}</p>
+            <h5>Role</h5>
+            <ul class="mb-4">
+              <li>Project manager: I organised the team thoughout the project, deploying organisational tools such as agile development, teamwork fostering, team overlaping and other (gantt charts, miro...)</li>
+              <li>Ultrasonic sensor lead</li>
+              <li>Outside mechanical design: I fully designed the case, eyes and tale of the rover, while ensuring the condition (weight < 500g) was met.</li>
+            </ul>
           </div>
         </div>
 
@@ -185,59 +185,7 @@
               <dd class="col-7">MCP6022 op-amps, envelope detectors, filters, comparators</dd>
               <dt class="col-5">Drive</dt>
               <dd class="col-7">Two-wheel DC, H-bridge PWM; auto-stop safety</dd>
-              <dt class="col-5">Chassis</dt>
-              <dd class="col-7">Light 3-wheel base + front servo’d antenna mounts</dd>
             </dl>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sensors -->
-  <section id="sensors" class="bg-light">
-    <div class="container">
-      <h2 class="section-title">Sensor Modules</h2>
-      <p class="section-subtitle">Each sensor was iterated from detection → amplification → robust decoding.
-        :contentReference[oaicite:5]{index=5}</p>
-
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="p-4 border rounded-4 h-100">
-            <h5>Ultrasonic (Name)</h5>
-            <ul class="mb-0">
-              <li>40 kHz carrier, ASK; 600 baud UART (4 ASCII chars + “#”).</li>
-              <li>Transducer → gain stage → envelope → threshold → comparator → decoded in firmware (timed sampling).
-                :contentReference[oaicite:6]{index=6}</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="p-4 border rounded-4 h-100">
-            <h5>Infrared (Age)</h5>
-            <ul class="mb-0">
-              <li>Frequency measured 130–1000 Hz; high-pass filter (~100 Hz) to remove ambient, amplified & thresholded.
-                :contentReference[oaicite:7]{index=7}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="p-4 border rounded-4 h-100">
-            <h5>Radio (AM)</h5>
-            <ul class="mb-0">
-              <li>Custom air-core solenoid (~435 µH) + parallel C tuned near signal, envelope detection, multi-stage
-                amplification. :contentReference[oaicite:8]{index=8}</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="p-4 border rounded-4 h-100">
-            <h5>Magnetic (Polarity)</h5>
-            <ul class="mb-0">
-              <li>SS49E hall sensor; differential stage biased to amplify ΔV vs baseline → North/South classification.
-                :contentReference[oaicite:9]{index=9}</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -257,7 +205,7 @@
             <img src="assets/rover1.png" alt="Project plan / Gantt" loading="lazy" data-bs-toggle="modal"
               data-bs-target="#imgModal" data-img-src="assets/rover1.png" data-img-title="Planning & Gantt">
             <div class="card-body">
-              <h6 class="card-title mb-0">Planning</h6>
+              <h6 class="card-title mb-0">LT spice Ultrasonic sensor schematic.</h6>
             </div>
           </div>
         </div>
@@ -267,7 +215,7 @@
             <img src="assets/rover2.png" alt="Ultrasound scope capture" loading="lazy" data-bs-toggle="modal"
               data-bs-target="#imgModal" data-img-src="assets/rover2.png" data-img-title="Ultrasound Signal">
             <div class="card-body">
-              <h6 class="card-title mb-0">Ultrasound Signal</h6>
+              <h6 class="card-title mb-0">Rover's "tongue". Up down motion design for flexible reach using servo SG90 x2.</h6>
             </div>
           </div>
         </div>
@@ -277,7 +225,7 @@
             <img src="assets/rover3.png" alt="IR front-end" loading="lazy" data-bs-toggle="modal"
               data-bs-target="#imgModal" data-img-src="assets/rover3.png" data-img-title="IR Front-End">
             <div class="card-body">
-              <h6 class="card-title mb-0">IR Front-End</h6>
+              <h6 class="card-title mb-0">Ultrasocnic, IR and magnetic sensor chassi mounts. </h6>
             </div>
           </div>
         </div>
@@ -287,7 +235,7 @@
             <img src="assets/rover4.png" alt="Custom radio antenna" loading="lazy" data-bs-toggle="modal"
               data-bs-target="#imgModal" data-img-src="assets/rover4.png" data-img-title="Custom Antenna">
             <div class="card-body">
-              <h6 class="card-title mb-0">Custom Antenna</h6>
+              <h6 class="card-title mb-0">Rover full design in Fusion360</h6>
             </div>
           </div>
         </div>
@@ -297,7 +245,7 @@
             <img src="assets/rover5.png" alt="Hall sensor module" loading="lazy" data-bs-toggle="modal"
               data-bs-target="#imgModal" data-img-src="assets/rover5.png" data-img-title="Hall Sensor">
             <div class="card-body">
-              <h6 class="card-title mb-0">Hall Sensor</h6>
+              <h6 class="card-title mb-0">Rover's 36 printed "tail"</h6>
             </div>
           </div>
         </div>
@@ -307,7 +255,7 @@
             <img src="assets/rover6.png" alt="Final Rover" loading="lazy" data-bs-toggle="modal"
               data-bs-target="#imgModal" data-img-src="assets/rover6.png" data-img-title="Final Rover">
             <div class="card-body">
-              <h6 class="card-title mb-0">Final Rover</h6>
+              <h6 class="card-title mb-0">Final 3D printed Rover case</h6>
             </div>
           </div>
         </div>
@@ -358,25 +306,16 @@
   <!-- Notes -->
   <section id="notes">
     <div class="container">
-      <h2 class="section-title">Build Notes</h2>
+      <h2 class="section-title"> Notes - Outcome</h2>
       <div class="row g-4">
-        <div class="col-md-6">
+        <div>
           <div class="p-4 border rounded-4 h-100">
             <h5 class="mb-2">Control & Webpage</h5>
             <ul class="mb-0">
-              <li>This is a placeholder text.</li>
-              <li>Auto-stop safety if no command received within ~5s. Keyboard shortcuts (WASD + Shift; servo up/down).
-                :contentReference[oaicite:10]{index=10}</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="p-4 border rounded-4 h-100">
-            <h5 class="mb-2">Mechanical</h5>
-            <ul class="mb-0">
-              <li>Compact 3-wheel chassis with front servo’d sensor mounts; weight reduction cut-outs.</li>
-              <li>Stylized outer shell with hinged tail segments for motion and identity.
-                :contentReference[oaicite:11]{index=11}</li>
+              <li>My dedicated implementation of management and organisational methods allowed us to be ahead of schedule</li>
+              <li>Our Rover was one of the 5/30 rovers to perform the demonstration task with 100% accuracy. correct identification of all lizards on time.</li>
+              <li>In addition it was the only Rover to have a custom and stylised creative design, while still meeting the weight limit.</li>
+
             </ul>
           </div>
         </div>
